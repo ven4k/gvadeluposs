@@ -1,0 +1,46 @@
+.spanText{
+	color: red;
+	font-size: 100px;
+	text-align: center;
+	margin-right: 60px;
+}
+.inputText{
+	display: block;
+	position: relative;
+	height: 250px;
+	margin: 0 auto;
+	width: 800px;
+
+}
+
+input {
+	width: 650px;
+	height: 80px;
+	font-size: 30px;
+	padding: 5px 0 5px 0;
+	background: #F6F6f6;
+	border-radius: 5px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.btn{
+	height: 50px;
+	margin: 0 auto;
+}
+.spisok{
+	position: relative;
+	width: 800px;
+	margin: 0 auto;
+}
+.spisok-item{
+	font-size: 30px;
+
+}
+.remove-btn{
+	display: none;
+}
+.btn2{
+	width: 70px;
+	display: block;
+}
