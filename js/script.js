@@ -3,7 +3,6 @@ let todoList = [];
 function renderTask() {
 	todoList.forEach(function(task) {
 	todoList.reverse().splice(0, todoList.length);
-
 })};
 
 
@@ -20,8 +19,7 @@ function renderTask() {
 	console.log(task);
 	$('input').val('');
 	renderTask(todoList);
-	if(task.text !== ''){
 	$('.list-item').append(task.text);
     $('.list-item').wrapInner(`<div class="newItem"></div>`);
-}});
+});
 
