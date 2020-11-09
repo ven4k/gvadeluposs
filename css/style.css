@@ -28,12 +28,12 @@ input {
 	height: 50px;
 	margin: 0 auto;
 }
-.spisok{
+.list{
 	position: relative;
 	width: 800px;
 	margin: 0 auto;
 }
-.spisok-item{
+.list-item{
 	font-size: 30px;
 
 }
