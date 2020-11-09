@@ -13,13 +13,11 @@ function renderTask() {
 		text: value,
 		completed: false,
 	}
-	if(task.value !== ''){
 	todoList.push(task);
-	}
 	console.log(task);
 	$('input').val('');
 	renderTask(todoList);
 	$('.list-item').append(task.text);
-    $('.list-item').wrapInner(`<div class="newItem"></div>`);
+    	$('.list-item').wrapInner(`<div class="newItem"></div>`);
 });
 
