@@ -31,11 +31,6 @@ let todoList = [];
 	$('input').val('');
 	$('.list-item').empty();
 	renderTask(todoList);
-
-	
-
-	$('.list-item').append(task.text);
-    	$('.list-item').wrapInner(`<div class="newItem"></div>`);
 });
 	$('.removeBtn').click(function() {
 		$('.newItem').closest().remove();
