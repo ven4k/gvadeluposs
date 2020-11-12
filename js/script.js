@@ -26,8 +26,6 @@ let todoList = [];
 		todoList.push(task);
 	}
 	console.log(todoList);
-	todoList.push(task);
-	console.log(task);
 	$('input').val('');
 	$('.list-item').empty();
 	renderTask(todoList);
