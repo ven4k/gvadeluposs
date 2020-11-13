@@ -7,10 +7,7 @@ let todoList = [];
 	'class': 'newItem',		
     'text': taskInfo,
 		}));
-		$('.newItem').append($('<button>', {
-			'class': 'removeBtn',
-			'text': 'Delete',
-		}))
+		
 		})}
 
 	$('.btn').click(function() {
@@ -29,7 +26,14 @@ let todoList = [];
 	$('input').val('');
 	$('.list-item').empty();
 	renderTask(todoList);
+	$('.newItem').append($('<button>', {
+			'class': 'removeBtn',
+			'text': 'Delete',
+		}))
+		
 });
-	$('.removeBtn').click(function() {
-		$('.newItem').closest().remove();
-	});
+	$('.list-item').on('click','button.removeBtn', function(){
+  let del = $(this).closest('div');
+  todoList.splice(del.index(), 1);
+  del.remove();
+});
