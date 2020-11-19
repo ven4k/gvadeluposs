@@ -44,3 +44,22 @@ input {
 	width: 70px;
 	display: block;
 }
+
+.todo__checkbox{
+	width: 25px;
+	position: relative;
+	left: 0;
+}
+.todo__text{
+	margin: 0 0 0 10px;
+}
+.remover{
+	width: 800px;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 25px;
+}
+.todo__text{
+	font-size: 40px;
+	
+}
