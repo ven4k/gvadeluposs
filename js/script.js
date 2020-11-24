@@ -72,6 +72,7 @@ let todoList = [];
 		console.log(false);
 	}
 	})
+
 	
 	$('.remover').on('click', '.todo__buttonSelect', function(e) {	
 		 
@@ -93,9 +94,10 @@ let todoList = [];
 		})
 	})})
 
-	$('.remover').on('click', '.todo__buttonDeleteCompleted', function(e){ 
-		let result = todoList.filter(item => item.completed != true);
-		
+	
+		$('.remover').on('click', '.todo__buttonDeleteCompleted', function(e){ 
+		todoList = todoList.filter(item => item.completed !== true);
+		renderTask(todoList);		
 	})
 		
 	
