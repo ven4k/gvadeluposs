@@ -1,10 +1,10 @@
 let todoList = [];
 
-	function getTemplate(text, id) {
+	function getTemplate(text, id, completed) {
 		return `
 			<div class="todo">
 				<span class="todo__text" id="content">
-				<input type="checkbox" class="todo__checkbox" value="${id}" name="option1">
+				<input type="checkbox" class="todo__checkbox" value="${id}" name="option1" checked="${completed}">
 				${text}
 				</span>
 				<button type="button" class="todo__button" value="${id}">
@@ -18,7 +18,7 @@ let todoList = [];
 	function renderTask(tasks) {
 		$('.list').empty();
 	todoList.forEach(function(item){
-		let template = getTemplate(item.text, item.id);
+		let template = getTemplate(item.text, item.id, item.completed);
 		$('.list').append(template)
 	})
 }
@@ -57,10 +57,10 @@ let todoList = [];
 
 
 	$('.list').on('change', '.todo__checkbox', function (e) {
-		const target = e.target;
+		const access = e.target;
 		const id = e.target.value
 		if ($('.todo__checkbox').is(':checked')) {
-		$(target).parent().addClass('style');
+		$(access).parent().addClass('style');
 		todoList.forEach(function(item){
 			if(item.id === Number(id)){
 				item.completed = !item.completed;
@@ -73,26 +73,27 @@ let todoList = [];
 	}
 	})
 
-	
+
 	$('.remover').on('click', '.todo__buttonSelect', function(e) {	
 		 
-		 $('.todo__checkbox').each(function() {
-		this.checked = true;
-		 $('.todo__checkbox').parent().addClass('style'); 
-		todoList.forEach(function(item){	
-		item.completed = !item.completed;	
-		})
-		
+		 $('#content .todo__checkbox').prop('checked', true);
+			$('.todo__checkbox').parent().addClass('style'); 
+			todoList.forEach(function(item){	
+				item.completed = !item.completed;	
+			})
+		console.log('all true');
 	})
-	})
+	
 	$('.remover').on('click', '.todo__buttonUnSelect', function(e) {	 
-		 $('.todo__checkbox').each(function() { 
-			this.checked = false;
-			 $('.todo__checkbox').parent().removeClass('style'); 
-			todoList.forEach(function(item){
-			item.completed = !item.completed;
-		})
-	})})
+		
+		 $('#content .todo__checkbox').prop('checked', false);
+			$('.todo__checkbox').parent().removeClass('style'); 
+			todoList.forEach(function(item){	
+				item.completed = !item.completed;	
+			})
+		console.log('all false');
+
+	})
 
 	
 		$('.remover').on('click', '.todo__buttonDeleteCompleted', function(e){ 
