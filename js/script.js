@@ -19,8 +19,8 @@ let todoList = [];
 		$('.list').empty();
 	todoList.forEach(function(item){
 		let template = getTemplate(item.text, item.id, item.completed);
-		$('.list').append(template)
-	})
+		$('.list').append(template);
+})
 }
 
 	$('.btn').click(function(e) {
@@ -56,22 +56,26 @@ let todoList = [];
 
 
 
-	$('.list').on('change', '.todo__checkbox', function (e) {
-		const access = e.target;
-		const id = e.target.value
-		if ($('.todo__checkbox').is(':checked')) {
-		$(access).parent().addClass('style');
+		$('.list').on('change', '.todo__checkbox', function (e) {
+		const id = e.target.value;
+		if ($(this).is(':checked')) {
+		$(this).parent().addClass('style');
 		todoList.forEach(function(item){
-			if(item.id === Number(id)){
-				item.completed = !item.completed;
+			if (item.id === Number(e.target.value)){
+				item.completed = true;
 			}
+		
 		})
-		console.log(true);
 	} else {
-		$('.todo__checkbox').parent().removeClass('style');
-		console.log(false);
+		todoList.forEach(function(item){
+			if (item.id === Number(e.target.value)){
+				item.completed = false;
+			}
+		
+		})
+		$(this).parent().removeClass('style');
 	}
-	})
+		})
 
 
 	$('.remover').on('click', '.todo__buttonSelect', function(e) {	
@@ -95,10 +99,8 @@ let todoList = [];
 
 	})
 
-	
-		$('.remover').on('click', '.todo__buttonDeleteCompleted', function(e){ 
-		todoList = todoList.filter(item => item.completed !== true);
+		$('.remover').on('click', '.todo__buttonDeleteCompleted', function(e){
+		e.preventDefault(); 
+		 todoList = todoList.filter(item => item.completed === false);
 		renderTask(todoList);		
 	})
-		
-	
