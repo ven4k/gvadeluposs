@@ -20,6 +20,10 @@ let todoList = [];
 	todoList.forEach(function(item){
 		let template = getTemplate(item.text, item.id, item.completed);
 		$('.list').append(template);
+		if($('.todo__checkbox').is(':checked')){
+			$('.todo__text').addClass('style');
+			item.completed = !item.complted;
+		}
 })
 }
 
